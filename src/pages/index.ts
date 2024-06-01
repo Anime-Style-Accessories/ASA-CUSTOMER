@@ -1,0 +1,12 @@
+export { default as BasePage } from './base/BasePage';
+export { default as CartPage } from './cart/CartPage';
+export { default as CategoryDetailPage } from './category/CategoryDetailPage';
+export { default as CategoryPage } from './category/CategoryPage';
+export { default as CheckoutPage } from './checkout/CheckoutPage';
+export { default as FavoritePage } from './favorite/FavoritePage';
+export { default as HomePage } from './home/HomePage';
+export { default as OrderDetailPage } from './order/OrderDetail';
+export { default as OrderPage } from './order/OrderPage';
+export { default as PaymentProcessing } from './payment-processing/PaymentProcessing';
+export { default as ProductDetailPage } from './product/ProductDetailPage';
+export { default as SearchPage } from './search/SearchPage';
