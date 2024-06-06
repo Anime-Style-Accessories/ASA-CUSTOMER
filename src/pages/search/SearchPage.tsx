@@ -1,4 +1,4 @@
-import { ProductCard, ScreenLoader } from '@/components';
+import { ProductCard } from '@/components';
 import { QUERY_KEY } from '@/constants';
 import { productService } from '@/services/product';
 import { useSearchStore } from '@/store';
@@ -35,12 +35,9 @@ const SearchPage = () => {
     }
   }, [fetchNextPage, inView, isFetchingNextPage]);
 
-  if (isLoading) {
-    return <ScreenLoader />;
-  }
-
   return (
     <div>
+      {isLoading && <Spinner />}
       <div className="grid grid-cols-[repeat(auto-fill,minmax(240px,1fr))] gap-3">
         {data?.pages.map(pageProduct =>
           pageProduct.data.map(product => (

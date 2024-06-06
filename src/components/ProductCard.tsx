@@ -71,11 +71,11 @@ const ProductCard = ({ product }: ProductCardProps) => {
         </Button>
         <Image
           classNames={{
-            wrapper: 'w-full !max-w-none z-[-1]',
+            wrapper: 'w-full !max-w-none -z-[1]',
           }}
           src={product.image || '/product-placeholder.png'}
           alt={product.name}
-          className="h-60 w-full rounded-md object-cover"
+          className="h-60 w-full rounded-md object-contain bg-white"
         />
       </CardHeader>
       <CardBody className="flex flex-col gap-2">

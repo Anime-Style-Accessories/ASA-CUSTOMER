@@ -23,6 +23,7 @@ export const API_ROUTES = {
     UPDATE: '/product/:id',
     GET_BY_CATEGORY: '/product/getProductsByCategoryAndName',
     GET_BY_LIST_ID: '/product/getProductByListId',
+    GET_SIMILAR_PRODUCTS: '/product/getSimilarProduct',
   },
   UPLOAD: {
     SINGLE: '/upload/single',

@@ -5,7 +5,7 @@ interface SearchStore {
   onChange: (k: string) => void;
 }
 
-export const useSearchStore = create<SearchStore>((set, get) => ({
+export const useSearchStore = create<SearchStore>(set => ({
   keyword: '',
   onChange: (k: string) => {
     set({ keyword: k });

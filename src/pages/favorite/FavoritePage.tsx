@@ -1,4 +1,4 @@
-import { ProductCard, ScreenLoader } from '@/components';
+import { ProductCard } from '@/components';
 import { QUERY_KEY } from '@/constants';
 import { productService } from '@/services/product';
 import { useFavoriteStore } from '@/store';
@@ -33,10 +33,6 @@ const FavoritePage = () => {
     }
   }, [fetchNextPage, inView, isFetchingNextPage]);
 
-  if (isLoading) {
-    return <ScreenLoader />;
-  }
-
   return (
     <div className="space-y-4">
       <div>
@@ -45,6 +41,7 @@ const FavoritePage = () => {
           All your favorite products will be displayed here
         </p>
       </div>
+      {isLoading && <Spinner />}
       <div>
         <div className="grid grid-cols-[repeat(auto-fill,minmax(240px,1fr))] gap-3">
           {(data?.pages?.[0]?.data.length || 0) > 0 ? (

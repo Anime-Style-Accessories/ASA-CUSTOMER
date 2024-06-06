@@ -7,7 +7,7 @@ import { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { useParams } from 'react-router-dom';
 
-const CategoryDetailPage = () => {
+const SimilarProducts = () => {
   const { id } = useParams<{
     id: string;
   }>();
@@ -15,12 +15,12 @@ const CategoryDetailPage = () => {
   const { ref, inView } = useInView();
   const { data, isFetchingNextPage, fetchNextPage, isLoading } =
     useInfiniteQuery({
-      queryKey: [QUERY_KEY.PRODUCTS.GET_PRODUCTS_BY_CATEGORY_AND_NAME, id],
+      queryKey: [QUERY_KEY.PRODUCTS.GET_SIMILAR_PRODUCTS, id],
       queryFn: async page => {
-        const res = await productService.getProductsByCategoryAndName({
+        const res = await productService.getSimilarProducts({
           page: page.pageParam,
-          size: 10,
-          category: id!,
+          size: 4,
+          id: id!,
         });
         return res.data;
       },
@@ -41,8 +41,8 @@ const CategoryDetailPage = () => {
   }
 
   return (
-    <div className="space-y-4">
-      <h2 className="text-2xl font-semibold">{id?.replace(/-/g, ' ')}</h2>
+    <div className="space-y-4 mt-8">
+      <h2 className="text-2xl font-semibold">Similar products</h2>
       <div>
         <div className="grid grid-cols-[repeat(auto-fill,minmax(240px,1fr))] gap-3">
           {(data?.pages?.[0]?.data?.length || 0) > 0 ? (
@@ -66,4 +66,4 @@ const CategoryDetailPage = () => {
   );
 };
 
-export default CategoryDetailPage;
+export default SimilarProducts;

@@ -87,18 +87,10 @@ const Topbar = () => {
             {categories.map(category => (
               <DropdownItem key={category.id}>
                 <Link
-                  to={ROUTES.CATEGORIES.ID.replace(
-                    ':id',
-                    category.name.replace(/\s/g, '-'),
-                  )}
+                  to={ROUTES.CATEGORIES.ID.replace(':id', category.name)}
                   className={cn(
                     'flex-1 w-full block',
-                    isActive(
-                      ROUTES.CATEGORIES.ID.replace(
-                        ':id',
-                        category.name.replace(/\s/g, '-'),
-                      ),
-                    )
+                    isActive(ROUTES.CATEGORIES.ID.replace(':id', category.name))
                       ? 'text-primary'
                       : '',
                   )}>

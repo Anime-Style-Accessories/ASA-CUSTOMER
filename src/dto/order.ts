@@ -25,6 +25,7 @@ export type OrderData = {
   totalAmount: number;
   paymentStatus: string;
   shippingStatus: string;
+  address: string;
 };
 
 export type OrderItemData = {

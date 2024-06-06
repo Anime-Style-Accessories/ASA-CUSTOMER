@@ -17,7 +17,7 @@ const CategoryAndProductsCard = ({ data }: Props) => {
         <h2 className="text-lg font-semibold">{data.categoryData.name}</h2>
         <Link
           className="font-medium text-primary flex items-center gap-2"
-          to={ROUTES.CATEGORIES.ID.replace(':id', data.categoryData.id)}>
+          to={ROUTES.CATEGORIES.ID.replace(':id', data.categoryData.name)}>
           View all <ChevronRight size={20} />
         </Link>
       </div>

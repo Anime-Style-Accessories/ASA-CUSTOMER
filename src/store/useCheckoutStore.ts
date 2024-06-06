@@ -11,7 +11,7 @@ interface CheckoutStore {
 
 export const useCheckoutStore = create(
   persist<CheckoutStore>(
-    (set, get) => ({
+    set => ({
       info: {
         address: '',
         email: '',

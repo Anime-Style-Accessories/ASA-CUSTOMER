@@ -31,4 +31,16 @@ export const productService = {
       },
     });
   },
+
+  getSimilarProducts: async ({
+    id,
+    page,
+    size,
+  }: { id: string } & PaginationParams) =>
+    await apiClient.get<PageDataProduct>(
+      API_ROUTES.PRODUCT.GET_SIMILAR_PRODUCTS,
+      {
+        params: { productId: id, page, size },
+      },
+    ),
 };

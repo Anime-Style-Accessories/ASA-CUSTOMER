@@ -46,7 +46,7 @@ const OrderDetailPage = () => {
           </div>
           <div className="mb-4">
             <h2 className="text-xl font-semibold">Shipping Address</h2>
-            <p className="text-foreground-700">{'N/A'}</p>
+            <p className="text-foreground-700">{order.address || 'N/A'}</p>
           </div>
           <div className="mb-4">
             <h2 className="text-xl font-semibold">Total</h2>
