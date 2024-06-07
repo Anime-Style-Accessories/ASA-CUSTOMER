@@ -38,6 +38,11 @@ const SearchPage = () => {
   return (
     <div>
       {isLoading && <Spinner />}
+      {data?.pages?.[0]?.data?.length === 0 && (
+        <p className="text-foreground-400">
+          No products found with keyword "<i>{keyword}</i>"
+        </p>
+      )}
       <div className="grid grid-cols-[repeat(auto-fill,minmax(240px,1fr))] gap-3">
         {data?.pages.map(pageProduct =>
           pageProduct.data.map(product => (

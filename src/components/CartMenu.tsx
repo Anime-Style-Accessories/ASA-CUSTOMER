@@ -8,6 +8,7 @@ import {
   Popover,
   PopoverContent,
   PopoverTrigger,
+  useDisclosure,
 } from '@nextui-org/react';
 import { ShoppingCart } from 'lucide-react';
 import { useMemo } from 'react';
@@ -16,6 +17,7 @@ import OrderItemCard from './OrderItemCard';
 
 const CartMenu = () => {
   const { orderItems: cart, clearCart } = useCartStore();
+  const { onOpenChange, onClose, isOpen } = useDisclosure();
 
   const subTotal = useMemo(
     () =>
@@ -26,7 +28,11 @@ const CartMenu = () => {
     [cart],
   );
   return (
-    <Popover showArrow placement="bottom-end">
+    <Popover
+      showArrow
+      placement="bottom-end"
+      isOpen={isOpen}
+      onOpenChange={onOpenChange}>
       <PopoverTrigger>
         <button>
           <Badge content={cart.length} color="danger">
@@ -74,7 +80,10 @@ const CartMenu = () => {
                 className="flex-1"
                 radius="full"
                 size="lg">
-                <Link to={ROUTES.CART} className="p-3 block w-full">
+                <Link
+                  to={ROUTES.CART}
+                  className="p-3 block w-full"
+                  onClick={onClose}>
                   View cart
                 </Link>
               </Button>
@@ -83,7 +92,10 @@ const CartMenu = () => {
                 className="flex-1"
                 radius="full"
                 size="lg">
-                <Link to={ROUTES.CHECKOUT} className="p-3 block w-full">
+                <Link
+                  to={ROUTES.CHECKOUT}
+                  className="p-3 block w-full"
+                  onClick={onClose}>
                   Check out
                 </Link>
               </Button>
